@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A page to view submissions with details like name and email.">
+    <title>Submissions</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Submissions Overview</h1>
+        <nav aria-label="Main Navigation">
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li><a href="{{ url_for('form') }}">Form</a></li>
+                <li><a href="{{ url_for('show_submissions') }}">Submissions</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section aria-label="Submission Table">
+            <h2>Submitted Data</h2>
+
+            {% if submissions %}
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for submission in submissions %}
+                    <tr>
+                        <td>{{ submission[0] }}</td>
+                        <td>{{ submission[1] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p>No submissions available at the moment.</p>
+            {% endif %}
+        </section>
+    </main>
+
+    <footer>
+        <p>Contact us at: <a href="mailto:tarungoud.sara@gmail.com">tarungoud.sara@gmail.com</a></p>
+    </footer>
+</body>
+</html>
