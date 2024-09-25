@@ -29,3 +29,6 @@ Data Storage:
 Form submissions are stored in a local file (submissions.txt) to ensure persistence.
 A separate route displays all the stored submissions on a new page.
 The /submissions page reads the data from the file and shows it in a table format.
+
+To Run: cmd:python3 app.py
+
